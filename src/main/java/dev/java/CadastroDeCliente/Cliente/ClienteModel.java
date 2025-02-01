@@ -17,7 +17,9 @@ public class ClienteModel {
     private String nome;
     private String email;
     private int idade;
-    private List<CarrosModel> carro;
+    @OneToMany(mappedBy = "cliente") // um cliente pode ter varios carros
+    private List<CarrosModel> carro; // crio a coluna carros dentro da coluna Cliente
+    // o OneToMany sempre vai ser uma lista
 
     public ClienteModel(String nome, String email, int idade) {
         this.nome = nome;
