@@ -1,6 +1,9 @@
-package dev.java.CadastroDeCliente;
+package dev.java.CadastroDeCliente.Cliente;
 
+import dev.java.CadastroDeCliente.Carro.CarrosModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity // transforma nossa classe em uma entidade no BANCO DE DADOS
 @Table(name = "tb_cadastro") // transforma nossa entidade em uma tabela
@@ -14,6 +17,7 @@ public class ClienteModel {
     private String nome;
     private String email;
     private int idade;
+    private List<CarrosModel> carro;
 
     public ClienteModel(String nome, String email, int idade) {
         this.nome = nome;
