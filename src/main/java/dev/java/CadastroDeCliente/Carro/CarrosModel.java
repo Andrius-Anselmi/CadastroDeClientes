@@ -15,10 +15,18 @@ public class CarrosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private long id;
+
+    @Column(name = "MARCA")
     private String marca;
+
+    @Column(name = "MODELO")
     private String modelo;
+
+    @Column(name = "ANO_DE_FABRICACAO")
     private int ano_fabricacao;
+
     @ManyToOne // varios carros podem ter um cliente/dono
     @JoinColumn(name = "carro_id") // Foreing Key - chave estrangeira
     private ClienteModel cliente;
