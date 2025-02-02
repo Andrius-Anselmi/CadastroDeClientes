@@ -20,9 +20,13 @@ public class ClienteModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+
     private String nome;
+
+    @Column(unique = true)// define que cada email é único
     private String email;
     private int idade;
+
     @OneToMany(mappedBy = "cliente") // um cliente pode ter varios carros
     private List<CarrosModel> carro; // crio a coluna carros dentro da coluna Cliente
     // o OneToMany sempre vai ser uma lista
