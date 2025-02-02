@@ -2,9 +2,15 @@ package dev.java.CadastroDeCliente.Carro;
 
 import dev.java.CadastroDeCliente.Cliente.ClienteModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_carros")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class CarrosModel {
 
     @Id
@@ -17,10 +23,5 @@ public class CarrosModel {
     @JoinColumn(name = "carro_id") // Foreing Key - chave estrangeira
     private ClienteModel cliente;
 
-    public CarrosModel(String marca, String modelo, ClienteModel cliente, int ano_fabricacao) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.cliente = cliente;
-        this.ano_fabricacao = ano_fabricacao;
-    }
+
 }
