@@ -2,9 +2,18 @@ package dev.java.CadastroDeCliente.Cliente;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
+
+    //preciso acessar a funcao listarClientes criada dentro do clienteService
+    private ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     @GetMapping("/bemvindo")
     public String boasVindas() {
@@ -21,9 +30,9 @@ public class ClienteController {
 
     // Mostrar todos clientes (READ)
     @GetMapping("/mostrartodos")
-    public String mostrarTodosClientes() {
+    public List<ClienteModel> mostrarTodosClientes() {
 
-        return "Exibindo clientes";
+        return clienteService.listarClientes(); // chamo a funcao listarClientes atraves da instancia clienteService
     }
     //Mostrar clientes por ID (READ)
     @GetMapping("/mostrarid")
