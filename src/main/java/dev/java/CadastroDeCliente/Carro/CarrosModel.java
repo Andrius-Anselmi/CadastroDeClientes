@@ -1,5 +1,6 @@
 package dev.java.CadastroDeCliente.Carro;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java.CadastroDeCliente.Cliente.ClienteModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,8 +28,9 @@ public class CarrosModel {
     @Column(name = "ANO_DE_FABRICACAO")
     private int ano_fabricacao;
 
+    @JsonIgnore
     @ManyToOne // varios carros podem ter um cliente/dono
-    @JoinColumn(name = "carro_id") // Foreing Key - chave estrangeira
+    @JoinColumn(name = "cliente_id") // Foreing Key - chave estrangeira
     private ClienteModel cliente;
 
 

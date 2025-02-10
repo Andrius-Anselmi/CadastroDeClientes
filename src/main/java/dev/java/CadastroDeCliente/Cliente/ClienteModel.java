@@ -1,5 +1,6 @@
 package dev.java.CadastroDeCliente.Cliente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java.CadastroDeCliente.Carro.CarrosModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
