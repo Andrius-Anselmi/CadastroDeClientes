@@ -1,8 +1,10 @@
 package dev.java.CadastroDeCliente.Cliente;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClienteService {
@@ -18,9 +20,15 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    // vamos criar o metódo pra listar
+    //Metódo para listar clientes
     public List<ClienteModel> listarClientes() {
 
         return clienteRepository.findAll(); // acessando as QUIERES do Repository
+    }
+
+    //Metódo para listar clientes por ID
+    public ClienteModel listarClientesPorId(Long id) {
+        Optional<ClienteModel> clientePorId = clienteRepository.findById(id);
+        return clientePorId.orElse(null);
     }
 }
