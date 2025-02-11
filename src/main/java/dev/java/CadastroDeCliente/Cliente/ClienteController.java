@@ -28,7 +28,7 @@ public class ClienteController {
         return "Cliente criado";
     }
 
-    // Mostrar todos clientes (READ)
+    //Mostrar todos clientes (READ)
     @GetMapping("/mostrar")
     public List<ClienteModel> mostrarTodosClientes() {
 
@@ -48,6 +48,7 @@ public class ClienteController {
     }
     //Deletar cliente por ID (DELETE)
     @DeleteMapping("/deletar/{id}")
-    public void deletarClientesPorID() {
+    public void deletarClientesPorID(@PathVariable Long id) {
+        clienteService.deletarClientesPorId(id);
     }
 }

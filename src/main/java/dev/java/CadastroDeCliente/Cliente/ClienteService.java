@@ -32,4 +32,9 @@ public class ClienteService {
         return clientePorId.orElse(null);
     }
 
+    //Metódo para deletar cientes por ID
+    public void deletarClientesPorId(Long id) {
+        clienteRepository.deleteById(id);
+    }
+
 }

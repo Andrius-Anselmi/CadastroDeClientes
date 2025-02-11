@@ -9,7 +9,6 @@ import java.util.List;
 @RequestMapping("/carro")
 public class CarroController {
 
-
     private CarroService carroService;
 
     public CarroController (CarroService carroService) {
@@ -33,16 +32,14 @@ public class CarroController {
     public List<CarrosModel> mostrarCarros() {
         return carroService.mostrarTodosCarros();
     }
-    //Mostra carro por ID (READ)
-    @GetMapping("/mostrarid")
-    public String mostrarCarroPorID() {
-
-        return "Exibindo carro por ID";
+    //Mostrar carro por ID (READ)
+    @GetMapping("/mostrar/{id}")
+    public CarrosModel listarCarroPorID(@PathVariable Long id) {
+        return  carroService.carrosPorId(id);
     }
     //Alterar dados do carro por ID (UPDATE)
     @PutMapping("/alterar")
     public String alterarDadosDoCarro() {
-
         return "Alterando dados dos carros por ID";
     }
 
