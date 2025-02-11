@@ -46,13 +46,8 @@ public class ClienteController {
 
         return "Alterando dados dos clientes por ID";
     }
-    //Deltar cliente por ID (DELETE)
-    @DeleteMapping("/deletar")
-    public String deletarPorID() {
-
-        return "Cliente deletado com sucesso";
+    //Deletar cliente por ID (DELETE)
+    @DeleteMapping("/deletar/{id}")
+    public void deletarClientesPorID() {
     }
-
-
-
 }
